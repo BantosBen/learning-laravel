@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $people = ['Angatia', 'Benson', 'Pesh', 'Wanjiku', 'Mugo'];
-    $name = "Bantos Ben";
-    return view('welcome')->with('name', $name)->with('people', $people);
-});
+Route::get('/', [WelcomeController::class, 'index']);
+
 Route::get('/hello', function () {
     return 'Hello, World!';
 });
